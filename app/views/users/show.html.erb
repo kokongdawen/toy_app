@@ -15,4 +15,13 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.juguetes.any? %>
+    <h3>Toy (<%= @user.juguetes.count %>)</h3>
+    <ol class="juguetes">
+      <%= render @juguetes %>
+    </ol>
+    <%= will_paginate @juguetes %>
+    <% end %>
+  </div>
 </div>

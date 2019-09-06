@@ -1,14 +1,32 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="juguete_form">
+        <%= render 'shared/juguete_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Bakit ka nandito?</h1>
 
-  <h2>
-    This is the home page for the
-    <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+    <h2>
+      Try mo,
+      <a href="#">walang</a>
+      meron dito.
+    </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>
+  <%= link_to image_tag("nak.gif", alt: "Cat pic"),
+              'https://www.google.com/search?q=pussy&source=lnms&sa=X&ved=0ahUKEwi4sODvxrvkAhWYMd4KHZCtDGgQ_AUIDCgA&biw=653&bih=578&dpr=1' %>
+
+<% end %>

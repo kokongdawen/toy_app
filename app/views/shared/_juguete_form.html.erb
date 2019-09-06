@@ -1,0 +1,16 @@
+<%= form_for(@juguete) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Bigyan mo ng pangalan" %>
+  </div>
+<div class="field">
+  <%= f.label :description %>
+  <%= f.text_area :content, placeholder: "Lagyan mo ng laman" %>
+  </div>
+<div class="field">
+  <%= f.label :price %>
+  <%= f.number_field :price, placeholder: "Bigyan mo ng halaga" %>
+  </div>
+<%= f.submit "Okay na", class: "btn btn-primary" %>
+<% end %>

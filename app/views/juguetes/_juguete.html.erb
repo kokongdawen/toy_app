@@ -1,0 +1,15 @@
+<li id="juguete-<%= juguete.id %>">
+  <%= link_to gravatar_for(juguete.user, size: 50), juguete.user %>
+  <span class="user"><%= link_to juguete.user.name, juguete.user %></span>
+  <span class="name"><%= juguete.name %></span>
+  <span class="content"><%= juguete.content %></span>
+  <span class="price"><%= juguete.price %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(juguete.created_at) %> ago.
+    <% if current_user?(juguete.user) %>
+      <%= link_to "edit", edit_juguete_path(juguete.id) %>
+      <%= link_to "delete", juguete, method: :delete,
+                                      data: { confirm: "u sure bro?" } %>
+    <% end %>
+  </span>
+</li>
